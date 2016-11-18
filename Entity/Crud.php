@@ -5,7 +5,7 @@ require_once '../config/config.php';
 
 require_once 'User.php';
 
-require_once '../ActionManager/ActionManager.php';
+require_once '../Action/Action.php';
 
 require_once '../Log.php';
 
@@ -20,8 +20,6 @@ class Crud extends ActionManager implements Log {
     {
         $this->db = $pdo;
     }
-
-
 
 
     public function logMessage($stmt, $time)
