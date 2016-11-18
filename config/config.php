@@ -1,22 +1,21 @@
 <?php
+// Connect to MySQL
 
-/**
- * Connect to MySQL
- */
+require_once '../Entity/Crud.php';
 
 class config {
 
-    private $host = '';
-    private $user = '';
-    private $password = '';
+    private $host = 'mysql:host=127.0.0.127;dbname=orm';
+    private $user = 'root';
+    private $password = 'root';
 
     // connect
-    public function connect(){
+    public function bdd(){
         $host = $this->getHost();
         $user = $this->getUser();
         $password = $this->getPassword();
 
-        $pdo = new PDO($host,$user,$password);
+        $pdo = new BDD($host,$user,$password);
 
         return $pdo;
     }
@@ -32,4 +31,10 @@ class config {
     public function getPassword(){
         return $this->password;
     }
+
+
 }
+
+$crud = new crud($pdo);
+
+
