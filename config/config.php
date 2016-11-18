@@ -5,9 +5,9 @@ require_once '../Entity/Crud.php';
 
 class config {
 
-    private $host = 'mysql:host=127.0.0.127;dbname=orm';
-    private $user = 'root';
-    private $password = 'root';
+    private $host = '127.0.0.1';
+    private $user = '';
+    private $password = '';
 
     // connect
     public function bdd(){
@@ -15,7 +15,7 @@ class config {
         $user = $this->getUser();
         $password = $this->getPassword();
 
-        $pdo = new BDD($host,$user,$password);
+        $pdo = new PDO("mysql:host=$host;dbname=orm", $user, $password);
 
         return $pdo;
     }
@@ -35,6 +35,4 @@ class config {
 
 }
 
-$crud = new crud($pdo);
-
-
+$crud = new crud($this->bdd());

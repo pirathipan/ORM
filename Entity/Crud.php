@@ -13,13 +13,15 @@ require_once '../Log.php';
 class Crud extends ActionManager implements Log {
 
     private $db;
-    private static $accessLog = baseDir.'/access.log';
-    private static $errorLog = baseDir.'/error.log';
+    private static $accessLog = '/access.log';
+    private static $errorLog = '/error.log';
 
     function __construct($pdo)
     {
         $this->db = $pdo;
     }
+
+
 
 
     public function logMessage($stmt, $time)
